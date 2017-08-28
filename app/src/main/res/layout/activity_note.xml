@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout android:layout_width="match_parent"
+    android:id="@+id/note_back"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
+    android:background="@color/posit">
+
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/floatingctionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+
+
+
+        app:elevation="9dp"
+        app:fab_addButtonColorNormal="@color/colorPrimaryDark"
+        app:backgroundTint="?attr/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp" >
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/accion_Fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            fab:fab_icon="@drawable/ic_favorito"
+            fab:fab_size="mini"
+            fab:fab_title="Favorito"
+            app:fab_icon="@android:drawable/star_big_on"
+            app:fab_colorNormal="@color/colorPrimaryDark" />
+
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/accion_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            fab:fab_icon="@drawable/ic_favorito"
+            fab:fab_size="mini"
+            fab:fab_title="Favorito"
+            app:fab_icon="@android:drawable/ic_menu_edit"
+            app:fab_colorNormal="@color/colorPrimaryDark" />
+
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/accion_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="?attr/colorAccent"
+            fab:fab_icon="@drawable/ic_carro_compra"
+            fab:fab_size="mini"
+            fab:fab_title="Añadir a la cesta"
+            app:fab_icon="@android:drawable/ic_menu_save"
+            app:fab_colorNormal="@color/colorPrimaryDark" />
+
+
+
+
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+
+
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_note"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.mynotes.android.mynotes.NoteActivity"
+            app:layout_collapseParallaxMultiplier="0.7">
+
+
+                <EditText
+                    android:id="@+id/NoteTt"
+                    android:hint="Titulo"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="12"
+
+
+
+                    android:textSize="20dp"
+                    android:gravity="center"
+
+                    android:padding="8dp"
+                    android:textStyle="normal|bold"
+                    android:background="@android:color/transparent" />
+
+            <ScrollView android:layout_width="match_parent"
+                android:id="@+id/ScrollNote"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+
+
+
+            <EditText
+                android:layout_weight="1"
+                android:id="@+id/Note"
+                android:inputType="none"
+                android:lines="10"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+
+
+                android:focusable="false"
+                android:clickable="false"
+                android:autoLink="web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+
+                android:hint="Añade tu nota"
+                android:gravity="start"
+                android:background="@color/posit"
+                android:selectAllOnFocus="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="8dp">
+
+
+
+            </EditText>
+        </ScrollView>
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/Img_Layout">
+
+
+                <ImageView
+                    android:id="@+id/noteImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingBottom="8dp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+</RelativeLayout>
