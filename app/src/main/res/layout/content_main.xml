@@ -27,7 +27,7 @@
             android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
 
-            ads:adUnitId="@string/banner_native">
+            ads:adUnitId="@string/banner_30s_resfresh">
 
         </com.google.android.gms.ads.AdView>
 
