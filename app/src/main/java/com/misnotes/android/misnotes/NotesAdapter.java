@@ -305,9 +305,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         }
     }
 
-
-
-
     /**
      * When data changes and a re-query occurs, this function swaps the old Cursor
      * with a newly updated Cursor (Cursor c) that is passed in.
@@ -325,8 +322,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     }
 
 
-
-
     @Override
     public int getItemCount() {
         if(mcursor==null){
@@ -335,14 +330,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         }
         return  mcursor.getCount();
     }
-
-
-
-
-
-
-
-
 
 
 

@@ -12,9 +12,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.DisplayMetrics;
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity
 
         int mNoOfColumns = calculateNoOfColumns(getApplicationContext());
 
-        mLayoutManager=new StaggeredGridLayoutManager(mNoOfColumns, StaggeredGridLayoutManager.VERTICAL);
+        //mLayoutManager=new StaggeredGridLayoutManager(mNoOfColumns, StaggeredGridLayoutManager.VERTICAL);
 
-        //mLayoutManager = new GridLayoutManager(this, mNoOfColumns);
+        mLayoutManager = new GridLayoutManager(this, mNoOfColumns);
 
 
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -186,11 +186,23 @@ public class MainActivity extends AppCompatActivity
         });
         */
 
-
-
         AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
         mAdView.loadAd(adRequest);
+
+
+        /*
+
+        */
+
+/*
+        NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+
+        AdRequest request = new AdRequest.Builder().build();
+        adView.loadAd(request);
+        */
 
 
 

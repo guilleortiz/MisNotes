@@ -33,6 +33,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.misnotes.android.misnotes.data.DataUtils;
 import com.misnotes.android.misnotes.data.NotesContract;
 import com.misnotes.android.misnotes.data.NotesDbHelper;
@@ -66,6 +69,8 @@ public class NoteActivity extends AppCompatActivity {
 
     Boolean imgChange=false;
 
+    private InterstitialAd mInterstialAd;
+
 
 
 
@@ -97,7 +102,16 @@ public class NoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
+        mInterstialAd=new InterstitialAd(this);
+        mInterstialAd.setAdUnitId("ca-app-pub-3097090752112431/7931272942");
 
+        // test ca-app-pub-3940256099942544/1033173712
+
+        //fullscreen banner ca-app-pub-3097090752112431/7931272942
+        AdRequest request= new AdRequest.Builder()
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstialAd.loadAd(request);
 
 
 
@@ -304,6 +318,12 @@ establece solo cuando se elige la img de galeria
 
 
                          finish();
+
+                        if (mInterstialAd.isLoaded()){
+
+                            mInterstialAd.show();
+                        }
+
                         Toast.makeText(NoteActivity.this, "Save!", Toast.LENGTH_SHORT).show();
 
                     }
@@ -338,6 +358,11 @@ establece solo cuando se elige la img de galeria
                     DataUtils.getInstance(NoteActivity.this).updateNote(cv,noteId);
 
                      finish();
+
+                    if (mInterstialAd.isLoaded()){
+
+                        mInterstialAd.show();
+                    }
                     Toast.makeText(NoteActivity.this, "Save!", Toast.LENGTH_SHORT).show();
 
 
@@ -524,6 +549,23 @@ establece solo cuando se elige la img de galeria
 
 
         });
+        mInterstialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Toast.makeText(NoteActivity.this, "addLoaded", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                Toast.makeText(NoteActivity.this, "Failed to load", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
 
 
 
@@ -652,10 +694,7 @@ establece solo cuando se elige la img de galeria
                    dbUpdateImg(mDb,noteId,picturePath,NoteActivity.this);
 
                   //update img
-                    Glide.with(this).load(picturePath)
-
-
-                            .fitCenter()
+                    Glide.with(this).load(picturePath)//ññññññññññññññññ
                             .dontTransform()
 
                             .into(mNoteImg);
@@ -761,11 +800,7 @@ establece solo cuando se elige la img de galeria
         //Toast.makeText(this, String.valueOf(String.valueOf(intent.getClipData().getItemAt(0).getUri())), Toast.LENGTH_LONG).show();
 
 
-        Glide.with(this).load(picturePath)
-
-
-                .fitCenter()
-
+        Glide.with(this).load(picturePath)//ñññññññññññññññññ
                 .into(mNoteImg);
 
         /*Cursor cursor = getContentResolver()
